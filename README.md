@@ -1,7 +1,7 @@
 # practical-sql-2
 
 ## Envrionment Setup
-This book uses PostgreSQL. While that is easy enough to install locally, I preferred not to. Instead, I decided to use containers to standup the environment that I will use while working through this book. My laptop is running Fedora, so I am using podman. However, the same commands should work with Docker. 
+This book uses PostgreSQL. While that is easy enough to install locally, I preferred not to. Instead, I decided to use containers to standup the environment that I will use while working through this book. My laptop is running Fedora, so I am using podman. Most commands should work with Docker with a little modification. You'd have to remove the parts specifying a pod and skip the pod creation step.
 
 ### Container Setup
 The first step is probably the easiest and that is just to download/pull the images that we want to use. In this case it is pgadmin4 and PostgreSQL 14.
