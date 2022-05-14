@@ -37,8 +37,13 @@ $ curl -s localhost:8080/login|grep pgadmin
 
 Run postgres container
 ```
-$ podman run -d --name pg14 --pod postgres --volume=postgres:/var/lib/pgsql/data:Z -e "POSTGRES_PASSWORD=$POSTGRES_PASSWORD" -e POSTGRES_USER=postgres docker.io/library/postgres
+$ podman run -d --name pg14 --pod postgres --volume=postgres:/var/lib/postgresql/data:Z --volume=/home/chris/data:/data:Z -e "POSTGRES_PASSWORD=$POSTGRES_PASSWORD" -e POSTGRES_USER=postgres docker.io/library/postgres
 ```
+In order to get this working so that the postgres user could write from the container and not just root, I had to modify the permissions on the host(my laptop). I ran the command shown belowto set the group owner to the gid of the postgres group in the cotainer.
+```
+$ podman unshare chgrp 999 data/
+```
+
 Connect to postgres container and verify that it is running.
 ```
 $ podman container exec -it pg14 /bin/bash
