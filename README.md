@@ -21,7 +21,7 @@ Next I created a specific volume for this deployment. I'll be mapping /var/lib/p
 ```
 $ podman volume create postgres
 ```
-```bash
+```
 $ export POSTGRES_MOUNT=$(podman volume inspect postgres --format="{{ .Mountpoint }}")
 ```
  
